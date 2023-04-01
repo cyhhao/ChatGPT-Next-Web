@@ -353,6 +353,15 @@ export function Chat(props: {
     }, 500);
   });
 
+  // Fix Chinese input method "Enter" issue
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.keyCode == 229) e.stopPropagation();
+    },
+    true,
+  );
+
   return (
     <div className={styles.chat} key={session.id}>
       <div className={styles["window-header"]}>
@@ -664,6 +673,11 @@ const useAccess = () => {
               setCode(e.currentTarget.value);
             }}
             value={code}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onClose();
+              }
+            }}
           />
         </Modal>
       </div>
