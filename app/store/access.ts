@@ -31,6 +31,6 @@ export const useAccessStore = create<AccessControlStore>()(
     {
       name: ACCESS_KEY,
       version: 1,
-    }
-  )
+    },
+  ),
 );

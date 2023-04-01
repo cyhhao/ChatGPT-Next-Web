@@ -1,6 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useLayoutEffect,
+  useCallback,
+} from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 import { IconButton } from "./button";
@@ -21,8 +27,14 @@ import CloseIcon from "../icons/close.svg";
 import CopyIcon from "../icons/copy.svg";
 import DownloadIcon from "../icons/download.svg";
 
-import { Message, SubmitKey, useChatStore, ChatSession } from "../store";
-import { showModal, showToast } from "./ui-lib";
+import {
+  Message,
+  SubmitKey,
+  useChatStore,
+  ChatSession,
+  useAccessStore,
+} from "../store";
+import { Modal, showModal, showToast } from "./ui-lib";
 import {
   copyToClipboard,
   downloadAs,
@@ -594,6 +606,67 @@ const useHasHydrated = () => {
   return hasHydrated;
 };
 
+const useAccess = () => {
+  const accessStore = useAccessStore.getState();
+  const [code, setCode] = useState(accessStore.accessCode);
+  const [close, setClose] = useState(false);
+
+  if (accessStore.token && accessStore.token.length > 3) {
+    return;
+  }
+  if (accessStore.accessCode && accessStore.accessCode.length > 3) {
+    return;
+  }
+  if (close) {
+    return;
+  }
+
+  const onClose = () => {
+    setClose(true);
+    accessStore.updateCode(code);
+  };
+
+  return (
+    <div className="modal-mask" onClick={onClose}>
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <Modal
+          title={Locale.Settings.AccessCode.Placeholder}
+          actions={[
+            <IconButton
+              key="ok"
+              icon={<SendWhiteIcon />}
+              bordered
+              text={"OK"}
+              onClick={onClose}
+            />,
+          ]}
+          onClose={onClose}
+        >
+          <input
+            className={styles["chat-input"]}
+            type="text"
+            style={{
+              width: "100%",
+              height: "50px",
+              padding: "0",
+              maxWidth: "100%",
+            }}
+            placeholder={Locale.Settings.AccessCode.Placeholder}
+            onChange={(e) => {
+              setCode(e.currentTarget.value);
+            }}
+            value={code}
+          />
+        </Modal>
+      </div>
+    </div>
+  );
+};
+
 export function Home() {
   const [createNewSession, currentIndex, removeSession] = useChatStore(
     (state) => [
@@ -611,6 +684,8 @@ export function Home() {
 
   useSwitchTheme();
 
+  const accessModal = useAccess();
+
   if (loading) {
     return <Loading />;
   }
@@ -623,6 +698,7 @@ export function Home() {
           : styles.container
       }`}
     >
+      {accessModal}
       <div
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
@@ -667,11 +743,11 @@ export function Home() {
                 }}
               />
             </div>
-            <div className={styles["sidebar-action"]}>
+            {/* <div className={styles["sidebar-action"]}>
               <a href={REPO_URL} target="_blank">
                 <IconButton icon={<GithubIcon />} />
               </a>
-            </div>
+            </div> */}
           </div>
           <div>
             <IconButton
