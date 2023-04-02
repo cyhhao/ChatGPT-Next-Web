@@ -331,7 +331,7 @@ export function Settings(props: { closeSettings: () => void }) {
             ></input>
           </SettingItem>
 
-          <SettingItem
+          {/* <SettingItem
             title={Locale.Settings.Usage.Title}
             subTitle={
               loadingUsage
@@ -351,7 +351,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 onClick={checkUsage}
               />
             )}
-          </SettingItem>
+          </SettingItem> */}
 
           <SettingItem
             title={Locale.Settings.HistoryCount.Title}
@@ -394,7 +394,7 @@ export function Settings(props: { closeSettings: () => void }) {
         </List>
 
         <List>
-          <SettingItem title={Locale.Settings.Model}>
+          {/* <SettingItem title={Locale.Settings.Model}>
             <select
               value={config.modelConfig.model}
               onChange={(e) => {
@@ -410,7 +410,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 </option>
               ))}
             </select>
-          </SettingItem>
+          </SettingItem> */}
           <SettingItem
             title={Locale.Settings.Temperature.Title}
             subTitle={Locale.Settings.Temperature.SubTitle}
@@ -430,7 +430,7 @@ export function Settings(props: { closeSettings: () => void }) {
               }}
             ></input>
           </SettingItem>
-          <SettingItem
+          {/* <SettingItem
             title={Locale.Settings.MaxTokens.Title}
             subTitle={Locale.Settings.MaxTokens.SubTitle}
           >
@@ -447,7 +447,7 @@ export function Settings(props: { closeSettings: () => void }) {
                 )
               }
             ></input>
-          </SettingItem>
+          </SettingItem> */}
           <SettingItem
             title={Locale.Settings.PresencePenlty.Title}
             subTitle={Locale.Settings.PresencePenlty.SubTitle}

@@ -6,6 +6,18 @@ async function createStream(req: NextRequest) {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
 
+  // control the body params
+  const bodyData = await req.clone().json();
+  if (bodyData.max_tokens > 2000) {
+    return "[Illegal] max_tokens must be less than 2000";
+  }
+  if (bodyData.model != "gpt-3.5-turbo") {
+    return "[Illegal] model must be gpt-3.5-turbo";
+  }
+  if (bodyData.messages.length > 24) {
+    return "[Illegal] messages length must be less than 24";
+  }
+
   const res = await requestOpenai(req);
 
   const stream = new ReadableStream({

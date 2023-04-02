@@ -322,13 +322,13 @@ export function Chat(props: {
         : [],
     )
     .concat(
-      userInput.length > 0 && config.sendPreviewBubble
+      userInput.length > 0
         ? [
             {
               role: "user",
               content: userInput,
               date: new Date().toLocaleString(),
-              preview: false,
+              preview: true,
             },
           ]
         : [],
@@ -471,7 +471,8 @@ export function Chat(props: {
                         </div>
                       </div>
                     )}
-                  {message.preview || message.content.length === 0 ? (
+                  {(message.preview || message.content.length === 0) &&
+                  (!isUser || !config.sendPreviewBubble) ? (
                     <LoadingIcon />
                   ) : (
                     <div
