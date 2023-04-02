@@ -49,14 +49,14 @@ function SettingItem(props: {
 
 export function Settings(props: { closeSettings: () => void }) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  const [config, updateConfig, resetConfig, clearAllData] = useChatStore(
-    (state) => [
+  const [config, updateConfig, resetConfig, clearAllData, clearSessions] =
+    useChatStore((state) => [
       state.config,
       state.updateConfig,
       state.resetConfig,
       state.clearAllData,
-    ],
-  );
+      state.clearSessions,
+    ]);
 
   const updateStore = useUpdateStore();
   const [checkingUpdate, setCheckingUpdate] = useState(false);
@@ -120,7 +120,7 @@ export function Settings(props: { closeSettings: () => void }) {
           <div className={styles["window-action-button"]}>
             <IconButton
               icon={<ClearIcon />}
-              onClick={clearAllData}
+              onClick={clearSessions}
               bordered
               title={Locale.Settings.Actions.ClearAll}
             />
@@ -167,31 +167,6 @@ export function Settings(props: { closeSettings: () => void }) {
                 <Avatar role="user" />
               </div>
             </Popover>
-          </SettingItem>
-
-          <SettingItem
-            title={Locale.Settings.Update.Version(currentId)}
-            subTitle={
-              checkingUpdate
-                ? Locale.Settings.Update.IsChecking
-                : hasNewVersion
-                ? Locale.Settings.Update.FoundUpdate(remoteId ?? "ERROR")
-                : Locale.Settings.Update.IsLatest
-            }
-          >
-            {checkingUpdate ? (
-              <div />
-            ) : hasNewVersion ? (
-              <Link href={UPDATE_URL} target="_blank" className="link">
-                {Locale.Settings.Update.GoToUpdate}
-              </Link>
-            ) : (
-              <IconButton
-                icon={<ResetIcon></ResetIcon>}
-                text={Locale.Settings.Update.CheckUpdate}
-                onClick={() => checkUpdate(true)}
-              />
-            )}
           </SettingItem>
 
           <SettingItem title={Locale.Settings.SendKey}>
@@ -274,6 +249,19 @@ export function Settings(props: { closeSettings: () => void }) {
               onChange={(e) =>
                 updateConfig(
                   (config) => (config.tightBorder = e.currentTarget.checked),
+                )
+              }
+            ></input>
+          </SettingItem>
+
+          <SettingItem title={Locale.Settings.SendPreviewBubble}>
+            <input
+              type="checkbox"
+              checked={config.sendPreviewBubble}
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                    (config.sendPreviewBubble = e.currentTarget.checked),
                 )
               }
             ></input>

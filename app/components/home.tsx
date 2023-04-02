@@ -144,9 +144,9 @@ function useSubmitHandler() {
   const config = useChatStore((state) => state.config);
   const submitKey = config.submitKey;
 
-  const shouldSubmit = (e: KeyboardEvent) => {
+  const shouldSubmit = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key !== "Enter") return false;
-
+    if (e.key === "Enter" && e.nativeEvent.isComposing) return false;
     return (
       (config.submitKey === SubmitKey.AltEnter && e.altKey) ||
       (config.submitKey === SubmitKey.CtrlEnter && e.ctrlKey) ||
@@ -268,7 +268,7 @@ export function Chat(props: {
   };
 
   // check if should send message
-  const onInputKeyDown = (e: KeyboardEvent) => {
+  const onInputKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (shouldSubmit(e)) {
       onUserSubmit();
       e.preventDefault();
@@ -305,6 +305,8 @@ export function Chat(props: {
   const dialogBoxRef = useRef<HTMLDivElement>(null);
   const [autoScroll, setAutoScroll] = useState(true);
 
+  const config = useChatStore((state) => state.config);
+
   // preview messages
   const messages = (session.messages as RenderMessage[])
     .concat(
@@ -320,13 +322,13 @@ export function Chat(props: {
         : [],
     )
     .concat(
-      userInput.length > 0
+      userInput.length > 0 && config.sendPreviewBubble
         ? [
             {
               role: "user",
               content: userInput,
               date: new Date().toLocaleString(),
-              preview: true,
+              preview: false,
             },
           ]
         : [],
@@ -511,7 +513,7 @@ export function Chat(props: {
             rows={isMobileScreen() ? 2 : 4}
             onInput={(e) => onInput(e.currentTarget.value)}
             value={userInput}
-            onKeyDown={(e) => onInputKeyDown(e as any)}
+            onKeyDown={onInputKeyDown}
             onFocus={() => setAutoScroll(true)}
             onBlur={() => {
               if (!isMobileScreen()) setAutoScroll(false);

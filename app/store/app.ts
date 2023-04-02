@@ -11,6 +11,10 @@ import { trimTopic } from "../utils";
 
 import Locale from "../locales";
 
+if (!Array.prototype.at) {
+  require("array.prototype.at/auto");
+}
+
 export type Message = ChatCompletionResponseMessage & {
   date: string;
   streaming?: boolean;
@@ -39,6 +43,7 @@ export interface ChatConfig {
   fontSize: number;
   theme: Theme;
   tightBorder: boolean;
+  sendPreviewBubble: boolean;
 
   disablePromptHint: boolean;
 
@@ -127,7 +132,8 @@ const DEFAULT_CONFIG: ChatConfig = {
   avatar: "1f603",
   fontSize: 14,
   theme: Theme.Auto as Theme,
-  tightBorder: true,
+  tightBorder: false,
+  sendPreviewBubble: true,
 
   disablePromptHint: false,
 
@@ -185,6 +191,7 @@ interface ChatStore {
   config: ChatConfig;
   sessions: ChatSession[];
   currentSessionIndex: number;
+  clearSessions: () => void;
   removeSession: (index: number) => void;
   selectSession: (index: number) => void;
   newSession: () => void;
@@ -221,6 +228,13 @@ export const useChatStore = create<ChatStore>()(
       currentSessionIndex: 0,
       config: {
         ...DEFAULT_CONFIG,
+      },
+
+      clearSessions() {
+        set(() => ({
+          sessions: [createEmptySession()],
+          currentSessionIndex: 0,
+        }));
       },
 
       resetConfig() {
