@@ -5,7 +5,10 @@ const DEFAULT_PROTOCOL = "https";
 const PROTOCOL = process.env.PROTOCOL ?? DEFAULT_PROTOCOL;
 const BASE_URL = process.env.BASE_URL ?? OPENAI_URL;
 
-export async function requestOpenai(req: NextRequest) {
+export async function requestOpenai(
+  req: NextRequest,
+  bodyText: string | null = null,
+) {
   const apiKey = req.headers.get("token");
   const openaiPath = req.headers.get("path");
 
@@ -17,6 +20,6 @@ export async function requestOpenai(req: NextRequest) {
       Authorization: `Bearer ${apiKey}`,
     },
     method: req.method,
-    body: req.body,
+    body: bodyText ? bodyText : req.body,
   });
 }

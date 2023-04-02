@@ -7,9 +7,8 @@ async function createStream(req: NextRequest) {
   const decoder = new TextDecoder();
 
   // control the body params
-  const cloneReq = req.clone.bind(req);
-  const clonedReq = cloneReq();
-  const bodyData = await clonedReq.json();
+
+  const bodyData = JSON.parse(await req.text());
   if (bodyData.max_tokens > 2000) {
     return "[Illegal] max_tokens must be less than 2000";
   }
@@ -20,7 +19,9 @@ async function createStream(req: NextRequest) {
     return "[Illegal] messages length must be less than 24";
   }
 
-  const res = await requestOpenai(req);
+  const bodyText = JSON.stringify(bodyData);
+
+  const res = await requestOpenai(req, bodyText);
 
   const stream = new ReadableStream({
     async start(controller) {
