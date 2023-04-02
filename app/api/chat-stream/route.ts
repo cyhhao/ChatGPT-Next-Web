@@ -7,7 +7,8 @@ async function createStream(req: NextRequest) {
   const decoder = new TextDecoder();
 
   // control the body params
-  const clonedReq = req.clone();
+  const cloneReq = req.clone.bind(req);
+  const clonedReq = cloneReq();
   const bodyData = await clonedReq.json();
   if (bodyData.max_tokens > 2000) {
     return "[Illegal] max_tokens must be less than 2000";
