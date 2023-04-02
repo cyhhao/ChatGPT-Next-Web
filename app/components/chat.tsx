@@ -446,7 +446,7 @@ export function Chat(props: {
         : [],
     )
     .concat(
-      userInput.length > 0 && config.sendPreviewBubble
+      userInput.length > 0
         ? [
             {
               role: "user",
@@ -577,7 +577,7 @@ export function Chat(props: {
                       </div>
                     )}
                   {(message.preview || message.content.length === 0) &&
-                  !isUser ? (
+                  (!isUser || !config.sendPreviewBubble) ? (
                     <LoadingIcon />
                   ) : (
                     <div
