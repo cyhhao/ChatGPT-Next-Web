@@ -6,22 +6,7 @@ async function createStream(req: NextRequest) {
   const encoder = new TextEncoder();
   const decoder = new TextDecoder();
 
-  // control the body params
-
-  const bodyData = JSON.parse(await req.text());
-  if (bodyData.max_tokens > 2000) {
-    return "[Illegal] max_tokens must be less than 2000";
-  }
-  if (bodyData.model != "gpt-3.5-turbo") {
-    return "[Illegal] model must be gpt-3.5-turbo";
-  }
-  if (bodyData.messages.length > 24) {
-    return "[Illegal] messages length must be less than 24";
-  }
-
-  const bodyText = JSON.stringify(bodyData);
-
-  const res = await requestOpenai(req, bodyText);
+  const res = await requestOpenai(req);
 
   const contentType = res.headers.get("Content-Type") ?? "";
   if (!contentType.includes("stream")) {
