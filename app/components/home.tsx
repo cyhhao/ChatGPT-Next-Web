@@ -582,7 +582,7 @@ const useAccess = () => {
           title={Locale.Settings.AccessCode.Placeholder}
           actions={[
             <IconButton
-              className={styles["ok-button"] + " no-dark"}
+              className={styles["ok-button"]}
               key="ok"
               icon={<SendWhiteIcon />}
               noDark
@@ -636,6 +636,16 @@ export function Home() {
   useSwitchTheme();
 
   const accessModal = useAccess();
+
+  // useEffect(() => {
+  //   document.addEventListener(
+  //     "keydown",
+  //     (e) => {
+  //       if (e.keyCode == 229) e.stopPropagation();
+  //     },
+  //     true,
+  //   );
+  // }, []);
 
   if (loading) {
     return <Loading />;
