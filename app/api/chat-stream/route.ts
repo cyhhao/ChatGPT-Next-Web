@@ -23,6 +23,15 @@ async function createStream(req: NextRequest) {
 
   const res = await requestOpenai(req, bodyText);
 
+  const contentType = res.headers.get("Content-Type") ?? "";
+  if (!contentType.includes("stream")) {
+    const content = await (
+      await res.text()
+    ).replace(/provided:.*. You/, "provided: ***. You");
+    console.log("[Stream] error ", content);
+    return "```json\n" + content + "```";
+  }
+
   const stream = new ReadableStream({
     async start(controller) {
       function onParse(event: any) {
