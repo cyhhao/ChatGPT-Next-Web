@@ -451,7 +451,7 @@ export function Chat(props: {
               role: "user",
               content: userInput,
               date: new Date().toLocaleString(),
-              preview: false,
+              preview: true,
             },
           ]
         : [],
@@ -548,6 +548,7 @@ export function Chat(props: {
                 <div
                   className={styles["chat-message-item"]}
                   onMouseOver={() => inputRef.current?.blur()}
+                  onTouchStart={() => inputRef.current?.blur()}
                 >
                   {!isUser &&
                     !(message.preview || message.content.length === 0) && (
