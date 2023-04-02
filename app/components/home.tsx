@@ -585,7 +585,7 @@ const useAccess = () => {
               className={styles["ok-button"] + " no-dark"}
               key="ok"
               icon={<SendWhiteIcon />}
-              bordered
+              noDark
               text={"OK"}
               onClick={onClose}
             />,
