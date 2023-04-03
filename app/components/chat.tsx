@@ -298,7 +298,7 @@ function useScrollToBottom() {
 
 export function Chat(props: {
   showSideBar?: () => void;
-  sideBarShowing?: boolean;
+  chatShowing?: boolean;
 }) {
   type RenderMessage = Message & { preview?: boolean };
 
@@ -464,6 +464,15 @@ export function Chat(props: {
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
+
+  useEffect(() => {
+    console.log("chatShowing", props.chatShowing);
+    if (props.chatShowing) {
+      inputRef.current?.focus();
+    } else {
+      inputRef.current?.blur();
+    }
+  }, [props.chatShowing]);
 
   return (
     <div className={styles.chat} key={session.id}>
@@ -632,7 +641,7 @@ export function Chat(props: {
               setAutoScroll(false);
               setTimeout(() => setPromptHints([]), 500);
             }}
-            autoFocus={!props?.sideBarShowing}
+            autoFocus={props?.chatShowing}
           />
           <IconButton
             icon={<SendWhiteIcon />}

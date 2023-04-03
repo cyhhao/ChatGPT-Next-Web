@@ -727,7 +727,7 @@ export function Home() {
           <Chat
             key="chat"
             showSideBar={() => setShowSideBar(true)}
-            sideBarShowing={showSideBar}
+            chatShowing={!showSideBar && !openSettings}
           />
         )}
       </div>
