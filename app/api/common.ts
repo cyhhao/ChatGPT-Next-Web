@@ -11,22 +11,22 @@ export async function requestOpenai(req: NextRequest) {
 
   console.log("[Proxy] ", openaiPath);
   let bodyText = "";
-  if (openaiPath == "v1/chat/completions") {
-    // control the body params
+  // if (openaiPath == "v1/chat/completions") {
+  //   // control the body params
 
-    const bodyData = JSON.parse(await req.text());
-    if (bodyData.max_tokens > 2000) {
-      throw Error("[Illegal] max_tokens must be less than 2000");
-    }
-    if (bodyData.model != "gpt-3.5-turbo") {
-      throw Error("[Illegal] model must be gpt-3.5-turbo");
-    }
-    if (bodyData.messages.length > 24) {
-      throw Error("[Illegal] messages length must be less than 24");
-    }
+  //   const bodyData = JSON.parse(await req.text());
+  //   if (bodyData.max_tokens > 2000) {
+  //     throw Error("[Illegal] max_tokens must be less than 2000");
+  //   }
+  //   if (bodyData.model != "gpt-3.5-turbo") {
+  //     throw Error("[Illegal] model must be gpt-3.5-turbo");
+  //   }
+  //   if (bodyData.messages.length > 24) {
+  //     throw Error("[Illegal] messages length must be less than 24");
+  //   }
 
-    bodyText = JSON.stringify(bodyData);
-  }
+  //   bodyText = JSON.stringify(bodyData);
+  // }
 
   return fetch(`${PROTOCOL}://${BASE_URL}/${openaiPath}`, {
     headers: {
