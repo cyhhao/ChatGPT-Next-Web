@@ -55,3 +55,7 @@ export async function POST(req: NextRequest) {
     console.error("[Chat Stream]", error);
   }
 }
+
+export const config = {
+  runtime: "edge",
+};
