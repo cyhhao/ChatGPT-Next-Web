@@ -12,14 +12,7 @@ import BotIcon from "../icons/bot.svg";
 import AddIcon from "../icons/add.svg";
 import DeleteIcon from "../icons/delete.svg";
 
-import {
-  Message,
-  SubmitKey,
-  useChatStore,
-  ChatSession,
-  BOT_HELLO,
-  ROLES,
-} from "../store";
+import { Message, SubmitKey, useChatStore, BOT_HELLO, ROLES } from "../store";
 
 import {
   copyToClipboard,
@@ -461,12 +454,8 @@ export function Chat(props: {
   const [showPromptModal, setShowPromptModal] = useState(false);
 
   // Auto focus
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
 
   useEffect(() => {
-    console.log("chatShowing", props.chatShowing);
     if (props.chatShowing) {
       inputRef.current?.focus();
     } else {
@@ -543,9 +532,7 @@ export function Chat(props: {
         className={styles["chat-body"]}
         ref={scrollRef}
         onScroll={(e) => onChatBodyScroll(e.currentTarget)}
-        onWheel={() => {
-          setAutoScroll(false);
-        }}
+        onWheel={() => setAutoScroll(false)}
         onTouchStart={() => {
           inputRef.current?.blur();
           setAutoScroll(false);
@@ -610,6 +597,7 @@ export function Chat(props: {
                         if (!isMobileScreen()) return;
                         setUserInput(message.content);
                       }}
+                      onMouseOver={() => inputRef.current?.blur()}
                     >
                       <Markdown content={message.content} />
                     </div>
