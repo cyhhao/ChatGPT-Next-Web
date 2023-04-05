@@ -7,11 +7,11 @@
 
 One-Click to deploy your own ChatGPT web UI.
 
-[演示 Demo](https://chat-gpt-next-web.vercel.app/) / [反馈 Issues](https://github.com/Yidadaa/ChatGPT-Next-Web/issues) / [加入 Discord](https://discord.gg/zrhvHCr79N) / [QQ 群](https://user-images.githubusercontent.com/16968934/228190818-7dd00845-e9b9-4363-97e5-44c507ac76da.jpeg) / [打赏开发者](https://user-images.githubusercontent.com/16968934/227772541-5bcd52d8-61b7-488c-a203-0330d8006e2b.jpg) / [Donate](#捐赠-donate-usdt)
+[演示 Demo](https://chat.zhusun.in/) / [反馈 Issues](https://github.com/cyhhao/ChatGPT-Next-Web/issues)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYidadaa%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcyhhao%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Yidadaa/ChatGPT-Next-Web)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cyhhao/ChatGPT-Next-Web)
 
 ![主界面](./static/cover.png)
 
@@ -39,10 +39,10 @@ One-Click to deploy your own ChatGPT web UI.
 
 ## 开发计划 Roadmap
 
-- System Prompt: pin a user defined prompt as system prompt 为每个对话设置系统 Prompt [#138](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/138)
+- System Prompt: pin a user defined prompt as system prompt 为每个对话设置系统 Prompt [#138](https://github.com/cyhhao/ChatGPT-Next-Web/issues/138)
 - User Prompt: user can edit and save custom prompts to prompt list 允许用户自行编辑内置 Prompt 列表
 - Self-host Model: support llama, alpaca, ChatGLM, BELLE etc. 支持自部署的大语言模型
-- Plugins: support network search, caculator, any other apis etc. 插件机制，支持联网搜索、计算器、调用其他平台 api [#165](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/165)
+- Plugins: support network search, caculator, any other apis etc. 插件机制，支持联网搜索、计算器、调用其他平台 api [#165](https://github.com/cyhhao/ChatGPT-Next-Web/issues/165)
 
 ### 不会开发的功能 Not in Plan
 
@@ -53,7 +53,7 @@ One-Click to deploy your own ChatGPT web UI.
 
 1. 准备好你的 [OpenAI API Key](https://platform.openai.com/account/api-keys);
 2. 点击右侧按钮开始部署：
-   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYidadaa%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web)，直接使用 Github 账号登录即可，记得在环境变量页填入 API Key；
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcyhhao%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web)，直接使用 Github 账号登录即可，记得在环境变量页填入 API Key；
 3. 部署完毕后，即可开始使用；
 4. （可选）[绑定自定义域名](https://vercel.com/docs/concepts/projects/domains/add-a-domain)：Vercel 分配的域名 DNS 在某些区域被污染了，绑定自定义域名即可直连。
 
@@ -61,7 +61,7 @@ One-Click to deploy your own ChatGPT web UI.
 
 1. Get [OpenAI API Key](https://platform.openai.com/account/api-keys);
 2. Click
-   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYidadaa%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web);
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcyhhao%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web);
 3. Enjoy :)
 
 ## 保持更新 Keep Updated
@@ -149,7 +149,7 @@ Override openai api request protocol.
 
 点击下方按钮，开始二次开发：
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Yidadaa/ChatGPT-Next-Web)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cyhhao/ChatGPT-Next-Web)
 
 在开始写代码之前，需要在项目根目录新建一个 `.env.local` 文件，里面填入环境变量：
 
@@ -169,15 +169,15 @@ OPENAI_API_KEY=<your api key here>
 ### 本地部署 Local Deployment
 
 ```shell
-bash <(curl -s https://raw.githubusercontent.com/Yidadaa/ChatGPT-Next-Web/main/scripts/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/cyhhao/ChatGPT-Next-Web/main/scripts/setup.sh)
 ```
 
 ### 容器部署 Docker Deployment
 
 ```shell
-docker pull yidadaa/chatgpt-next-web
+docker pull cyhhao/chatgpt-next-web
 
-docker run -d -p 3000:3000 -e OPENAI_API_KEY="" -e CODE="" yidadaa/chatgpt-next-web
+docker run -d -p 3000:3000 -e OPENAI_API_KEY="" -e CODE="" cyhhao/chatgpt-next-web
 ```
 
 ## 截图 Screenshots
@@ -197,7 +197,7 @@ docker run -d -p 3000:3000 -e OPENAI_API_KEY="" -e CODE="" yidadaa/chatgpt-next-
 
 ### 贡献者 Contributor
 
-[Contributors](https://github.com/Yidadaa/ChatGPT-Next-Web/graphs/contributors)
+[Contributors](https://github.com/cyhhao/ChatGPT-Next-Web/graphs/contributors)
 
 ## LICENSE
 
