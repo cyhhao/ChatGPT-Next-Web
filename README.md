@@ -7,11 +7,18 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 
 一键免费部署你的私人 ChatGPT 网页应用。
 
+<<<<<<< HEAD
 [演示 Demo](https://chat-gpt-next-web.vercel.app/) / [反馈 Issues](https://github.com/Yidadaa/ChatGPT-Next-Web/issues) / [Join Discord](https://discord.gg/zrhvHCr79N) / [QQ 群](https://user-images.githubusercontent.com/16968934/228190818-7dd00845-e9b9-4363-97e5-44c507ac76da.jpeg) / [打赏开发者](https://user-images.githubusercontent.com/16968934/227772541-5bcd52d8-61b7-488c-a203-0330d8006e2b.jpg) / [Buy Me a Coffee](https://www.buymeacoffee.com/yidadaa)
+=======
+One-Click to deploy your own ChatGPT web UI.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYidadaa%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web)
+[演示 Demo](https://chat.zhusun.in/) / [反馈 Issues](https://github.com/cyhhao/ChatGPT-Next-Web/issues)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Yidadaa/ChatGPT-Next-Web)
+> > > > > > > bf109a0072a06d35b31ebdbd595cf8e00037c5b9
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcyhhao%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web)
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cyhhao/ChatGPT-Next-Web)
 
 ![cover](./docs/images/cover.png)
 
@@ -29,11 +36,18 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 
 ## Roadmap
 
+<<<<<<< HEAD
+
 - [x] System Prompt: pin a user defined prompt as system prompt [#138](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/138)
 - [ ] User Prompt: user can edit and save custom prompts to prompt list
 - [ ] Desktop App with tauri
 - [ ] Self-host Model: support llama, alpaca, ChatGLM, BELLE etc.
-- [ ] Plugins: support network search, caculator, any other apis etc. [#165](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/165)
+- [ ] # Plugins: support network search, caculator, any other apis etc. [#165](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/165)
+- System Prompt: pin a user defined prompt as system prompt 为每个对话设置系统 Prompt [#138](https://github.com/cyhhao/ChatGPT-Next-Web/issues/138)
+- User Prompt: user can edit and save custom prompts to prompt list 允许用户自行编辑内置 Prompt 列表
+- Self-host Model: support llama, alpaca, ChatGLM, BELLE etc. 支持自部署的大语言模型
+- Plugins: support network search, caculator, any other apis etc. 插件机制，支持联网搜索、计算器、调用其他平台 api [#165](https://github.com/cyhhao/ChatGPT-Next-Web/issues/165)
+  > > > > > > > bf109a0072a06d35b31ebdbd595cf8e00037c5b9
 
 ### Not in Plan
 
@@ -50,7 +64,8 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 - 一键导出聊天记录，完整的 Markdown 支持
 - 拥有自己的域名？好上加好，绑定后即可在任何地方**无障碍**快速访问
 
-## 开发计划 
+## 开发计划
+
 - [x] 为每个对话设置系统 Prompt [#138](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/138)
 - [ ] 允许用户自行编辑内置 Prompt 列表
 - [ ] 使用 tauri 打包桌面应用
@@ -58,22 +73,38 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 - [ ] 插件机制，支持联网搜索、计算器、调用其他平台 api [#165](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/165)
 
 ### 不会开发的功能
+
 - 界面文字自定义
 - 用户登录、账号管理、消息云同步
 
+# <<<<<<< HEAD
+
+1. 准备好你的 [OpenAI API Key](https://platform.openai.com/account/api-keys);
+2. 点击右侧按钮开始部署：
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcyhhao%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web)，直接使用 Github 账号登录即可，记得在环境变量页填入 API Key；
+3. 部署完毕后，即可开始使用；
+4. （可选）[绑定自定义域名](https://vercel.com/docs/concepts/projects/domains/add-a-domain)：Vercel 分配的域名 DNS 在某些区域被污染了，绑定自定义域名即可直连。
+   > > > > > > > bf109a0072a06d35b31ebdbd595cf8e00037c5b9
 
 ## Get Started
+
 > [简体中文 > 如何开始使用](./README_CN.md#开始使用)
 
 1. Get [OpenAI API Key](https://platform.openai.com/account/api-keys);
 2. Click
+   <<<<<<< HEAD
    [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYidadaa%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web), remember that `CODE` is your page password;
+   =======
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcyhhao%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web);
+   > > > > > > > bf109a0072a06d35b31ebdbd595cf8e00037c5b9
 3. Enjoy :)
 
 ## FAQ
+
 [简体中文 > 常见问题](./docs/faq-cn.md) | [English > FAQ](./docs/faq.en.md)
 
 ## Keep Updated
+
 > [简体中文 > 如何保持代码更新](./README_CN.md#保持更新)
 
 If you have deployed your own project with just one click following the steps above, you may encounter the issue of "Updates Available" constantly showing up. This is because Vercel will create a new project for you by default instead of forking this project, resulting in the inability to detect updates correctly.
@@ -87,11 +118,12 @@ We recommend that you follow the steps below to re-deploy:
 
 This project will be continuously updated, and after forking the project, the upstream code will be automatically synchronized every day without additional operations.
 
-If you want to update instantly, you can check out the [Github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) to learn how to synchronize a forked project with upstream code. 
+If you want to update instantly, you can check out the [Github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) to learn how to synchronize a forked project with upstream code.
 
 You can star or watch this project or follow author to get release notifictions in time.
 
 ## Access Password
+
 > [简体中文 > 如何增加访问密码](./README_CN.md#配置页面访问密码)
 
 This project provides limited access control. Please add an environment variable named `CODE` on the vercel environment variables page. The value should be passwords separated by comma like this:
@@ -103,6 +135,7 @@ code1,code2,code3
 After adding or modifying this environment variable, please redeploy the project for the changes to take effect.
 
 ## Environment Variables
+
 > [简体中文 > 如何配置 api key、访问密码、接口代理](./README_CN.md#环境变量)
 
 ### `OPENAI_API_KEY` (required)
@@ -128,9 +161,10 @@ Override openai api request base url.
 Override openai api request protocol.
 
 ## Development
+
 > [简体中文 > 如何进行二次开发](./README_CN.md#开发)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Yidadaa/ChatGPT-Next-Web)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cyhhao/ChatGPT-Next-Web)
 
 Before starting development, you must create a new `.env.local` file at project root, and place your api key into it:
 
@@ -141,21 +175,19 @@ OPENAI_API_KEY=<your api key here>
 ### Local Development
 
 ```shell
-# 1. install nodejs and yarn first
-# 2. config local env vars in `.env.local`
-# 3. run
-yarn install
-yarn dev
+bash <(curl -s https://raw.githubusercontent.com/cyhhao/ChatGPT-Next-Web/main/scripts/setup.sh)
 ```
 
 ## Deployment
+
 > [简体中文 > 如何部署到私人服务器](./README_CN.md#部署)
+
 ### Docker (Recommended)
 
 ```shell
-docker pull yidadaa/chatgpt-next-web
+docker pull cyhhao/chatgpt-next-web
 
-docker run -d -p 3000:3000 -e OPENAI_API_KEY="" -e CODE="" yidadaa/chatgpt-next-web
+docker run -d -p 3000:3000 -e OPENAI_API_KEY="" -e CODE="" cyhhao/chatgpt-next-web
 ```
 
 ### Shell
@@ -163,6 +195,7 @@ docker run -d -p 3000:3000 -e OPENAI_API_KEY="" -e CODE="" yidadaa/chatgpt-next-
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/Yidadaa/ChatGPT-Next-Web/main/scripts/setup.sh)
 ```
+
 ## Screenshots
 
 ![Settings](./docs/images/settings.png)
@@ -170,9 +203,11 @@ bash <(curl -s https://raw.githubusercontent.com/Yidadaa/ChatGPT-Next-Web/main/s
 ![More](./docs/images/more.png)
 
 ## Donation
+
 [Buy Me a Coffee](https://www.buymeacoffee.com/yidadaa)
 
 ## Special Thanks
+
 ### Sponsor
 
 [@mushan0x0](https://github.com/mushan0x0)
@@ -187,7 +222,7 @@ bash <(curl -s https://raw.githubusercontent.com/Yidadaa/ChatGPT-Next-Web/main/s
 
 ### Contributor
 
-[Contributors](https://github.com/Yidadaa/ChatGPT-Next-Web/graphs/contributors)
+[Contributors](https://github.com/cyhhao/ChatGPT-Next-Web/graphs/contributors)
 
 ## LICENSE
 
